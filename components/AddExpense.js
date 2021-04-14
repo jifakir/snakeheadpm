@@ -123,8 +123,8 @@ const AddExpense = ({clicked}) => {
     return (
         <Portal>
             <div onClick={clicked} className="portal w-full min-h-screen fixed flex justify-center items-center bg-gray-700 shadow-lg bg-opacity-50 top-0 left-0">
-                <div onClick={(e) => e.stopPropagation()} className={`w-5/6 md:w-1/2 m-auto border bg-gray-900 px-10 py-8 rounded-2xl ${submitted ? 'border-green-500' : error ? 'border-red-500' : 'border-blue-500'}`}>
-                    <div className="w-10 h-10 absolute top-2 text-red-600 right-2"><XCircle /></div>
+                <div onClick={(e) => e.stopPropagation()} className={`relative w-5/6 md:w-1/2 m-auto border bg-gray-900 px-10 py-8 rounded-2xl ${submitted ? 'border-green-500' : error ? 'border-red-500' : 'border-blue-500'}`}>
+                    <div onClick={clicked} className="w-10 h-10 absolute top-2 text-red-600 right-1"><XCircle /></div>
                     {
                         processing ?
                         <Spinner title="Your expense is saving" />:
