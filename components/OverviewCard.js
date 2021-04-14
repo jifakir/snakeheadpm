@@ -5,7 +5,7 @@ import * as Icon from 'react-feather';
 const OverviewCard = ({amount, title}) => {
 
     return (
-        <div className="overview bg-gray-800 rounded-xl">
+        <div className="overview w-full mb-2 bg-gray-800 rounded-xl ">
             <div className="w-full px-5 py-7 border-b border-gray-700 flex items-center">
                 <div className="px-5">
                     <div className="w-20 h-20 rounded-full bg-green-500 flex justify-center items-center">
@@ -30,9 +30,12 @@ const OverviewCard = ({amount, title}) => {
                 </div>
             </div>
             <style jsx>{`
-                .overview{
-                    width: 49%;
-                }
+                @media (min-width: 768px) { 
+                    .overview{
+                        width: 49%;
+                    }
+                 }
+                
             `}</style>
         </div>
     )

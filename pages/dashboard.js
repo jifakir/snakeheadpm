@@ -19,7 +19,7 @@ const Dashboard = () => {
     
     // adding side Effect;
     useEffect(() => {
-        !session && router.push('/login'); 
+        !session && !loading && router.push('/login'); 
      }, [session]);
 
      const [addExpense, setAddExpense] = useState(false);
@@ -52,8 +52,8 @@ const Dashboard = () => {
         <div className="w-full py-5">
             <header className="">
                 <h3 className="uppercase text-sm text-gray-500 font-bold">Overview</h3>
-                <div className="w-full flex justify-between">
-                    <div className="font-bold">
+                <div className="w-full flex flex-col md:flex-row justify-between">
+                    <div className="font-bold mb-2">
                         <h1 className="text-white text-2xl">Welcome, Jahid</h1>
                         <h3 className="text-gray-500 tracking-wide text-sm">
                             Here's what's happening with your projects today
@@ -67,11 +67,11 @@ const Dashboard = () => {
                         {addExpense && <AddExpense clicked={addExpenseHandler} />}
                     </div>
                 </div>
-                <div className="pt-5 flex justify-between">
+                <div className="pt-5 flex flex-col md:flex-row md:justify-between">
                     <OverviewCard amount={totalCost} title="Total" />
                     <OverviewCard amount="15000" title="Last Month" />
                 </div>
-                <div className="w-full pt-5 flex justify-between">
+                <div className="w-full pt-5 flex flex-col md:flex-row md:justify-between">
                     <ExpenditureGraph />
                     <MyExpense data={data.data} />
                 </div>

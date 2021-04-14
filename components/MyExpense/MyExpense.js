@@ -1,17 +1,28 @@
 import MyExpenseItem from "./MyExpenseItem";
 import { ArrowRight } from 'react-feather';
+import { useSession } from 'next-auth/client';
+import Spinner from "../Spinner";
+import useSWR from 'swr';
 
 
 
 
-const MyExpense = ({data}) => {
+const MyExpense = () => {
 
-    if(!data) return <p className="w-full text-blue-500">Loading</p>;
+   
+    const [session, loading] = useSession();
+    if(!session) return <h2 className="text-red-500">Unauthenticated user isn't allowed to see this section</h2>
+    // if(loading) return <Spinner />;
 
-    const renderData = data.reverse().slice(0,5);
+    const fetcher = (...args) => fetch(...args).then(res => res.json());
+    const {data, error} = useSWR('/api/expense', fetcher);
 
+    const userId = session.user.id;
+    console.log(userId);
+    const myExpenses = data.data.filter(item => item.contributor === userId).slice(0,5);
+    
     return (
-        <div className="w-5/12 ml-2 rounded-xl bg-gray-800">
+        <div className="w-full md:w-5/12 md:ml-2 rounded-xl bg-gray-800">
             <div className="w-full h-full p-3 flex flex-col justify-between">
                 <header className="w-full py-3 border-b border-gray-700">
                     <h3 className="uppercase text-sm text-gray-500">Expense belongs to me</h3>
@@ -26,10 +37,11 @@ const MyExpense = ({data}) => {
                             <div className="w-1/3 text-right uppercase"> Amount </div>
                         </li>
                         {
-                            renderData.map((item, idx) => <MyExpenseItem 
+                            myExpenses.map((item, idx) => <MyExpenseItem 
                                 key={idx} 
                                 purpose={item.purpose}
-                                amount={item.amount} />)
+                                amount={item.amount}
+                                date={item.date} />)
                         }
                     </ul>
                 </div>

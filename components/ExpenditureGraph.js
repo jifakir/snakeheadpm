@@ -38,12 +38,12 @@ const ExpenditureGraph = () => {
       ];
 
     return (
-        <div className="w-7/12 rounded-xl bg-gray-800">
+        <div className="w-full md:w-7/12 mb-2 rounded-xl bg-gray-800">
             <div className="p-5">
                 <h1 className="text-xl text-white font-bold">Total Expense Graph</h1>
                 <h3 className="text-gray-500 text-sm font-bold leading-10">All Projects</h3>
             </div>
-            <div className="w-full">
+            <div className="w-full overflow-x-auto">
                 <BarChart width={500} height={300} data={data}>
                     <XAxis dataKey="name" stroke="#999" />
                     <YAxis />

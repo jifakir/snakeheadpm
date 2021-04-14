@@ -4,12 +4,12 @@ import { useSession } from 'next-auth/client';
 
 
 
-const SideDrawer = () => {
+const SideDrawer = ({drawerOpen}) => {
 
     const [session, loading] = useSession();
 
     return (
-        <div className="side-drawer bg-gray-800 fixed left-0 border-r border-gray-600 flex flex-col justify-between">
+        <div className={` side-drawer bg-gray-800 fixed left-0 border-r border-gray-600 flex flex-col justify-between`}>
             <div className="w-full p-5 border-b border-gray-600">
                 <div className="rounded-md p-3 flex justify-center items-center bg-gray-900 border-b border-gray-600">
                     <div className="rounded-full overflow-hidden w-12 h-12  mx-2">
@@ -21,7 +21,7 @@ const SideDrawer = () => {
                     </div>
                 </div>
             </div>
-            <div className="w-full px-5 py-7 text-gray-500 font-bold">
+            <div className="w-full h-full px-5 py-7 text-gray-500 font-bold">
                <DrawerItem title="Overview" pathname="/dashboard">
                    <Icon.BarChart />
                </DrawerItem>
