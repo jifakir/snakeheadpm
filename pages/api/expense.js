@@ -16,7 +16,7 @@ export default async (req, res) => {
     case 'GET':
       try{
         const expenses = await Expense.find().exec();
-        res.status(200).json({success: true, data: expenses})
+        res.status(200).json({success: true, data: expenses.reverse()})
        } catch (err) {
           res.status(400).json({message: false });
         }

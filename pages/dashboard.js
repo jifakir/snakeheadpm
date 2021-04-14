@@ -16,11 +16,9 @@ const Dashboard = () => {
     const [session, loading] = useSession();
     const router = useRouter();
     
-    
-    // adding side Effect;
     useEffect(() => {
-        !session && !loading && router.push('/login'); 
-     }, [session]);
+        if(!session & !loading) return router.push('/login')
+    }, session);
 
      const [addExpense, setAddExpense] = useState(false);
 
@@ -41,12 +39,10 @@ const Dashboard = () => {
     if(!data) return <Spinner title="Page loading" />;
 
     // Setting corresponding data
-    console.log(data.data);
+   
     const totalCost = data.data.reduce((acc, val) => acc + val.amount, 0);
-    console.log("Total Cost",totalCost);
+   
     
-    // rendering full page;
-
     
     return (
         <div className="w-full py-5">
@@ -54,7 +50,7 @@ const Dashboard = () => {
                 <h3 className="uppercase text-sm text-gray-500 font-bold">Overview</h3>
                 <div className="w-full flex flex-col md:flex-row justify-between">
                     <div className="font-bold mb-2">
-                        <h1 className="text-white text-2xl">Welcome, Jahid</h1>
+                        <h1 className="text-white text-2xl">Welcome, {session ? session.user.name : 'Unknown'}</h1>
                         <h3 className="text-gray-500 tracking-wide text-sm">
                             Here's what's happening with your projects today
                         </h3>
@@ -73,7 +69,7 @@ const Dashboard = () => {
                 </div>
                 <div className="w-full pt-5 flex flex-col md:flex-row md:justify-between">
                     <ExpenditureGraph />
-                    <MyExpense data={data.data} />
+                    <MyExpense  />
                 </div>
             </header>
         </div>

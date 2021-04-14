@@ -29,8 +29,8 @@ const Login = ({clicked}) => {
 
     return (
         <Portal>
-            <div onClick={clicked} className="portal w-full min-h-screen fixed flex justify-center items-center bg-gray-800 shadow-lg top-0 left-0">
-                <div onClick={(e) => e.stopPropagation()} className="w-2/6 m-auto bg-gray-900 px-10 py-8 rounded-2xl">
+            <div onClick={clicked} className="portal w-full min-h-screen fixed flex justify-center items-center bg-gray-800 shadow-lg bg-opacity-70 top-0 left-0">
+                <div onClick={(e) => e.stopPropagation()} className="w-5/6 md:w-2/6  m-auto bg-gray-900 px-10 py-8 rounded-2xl">
                     <h1 className="text-center font-bold text-2xl text-blue-500 uppercase">Login</h1>
                     {
                         error && <h2 className="text-center font-bold text-xs text-red-500">Login failed! Invalid email or password</h2>

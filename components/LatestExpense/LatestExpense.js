@@ -15,8 +15,8 @@ const LatestExpense = () => {
             <div className="w-full p-5 text-gray-600">
                 <h1 className=" text-blue-500 font-bold uppercase">Latest Expenses</h1>
                 <div className="w-full">
-                    {
-                        data.data.map(item => <LatestItem item={item} />)
+                    {   
+                        data.data.map((item, idx) => <LatestItem key={idx} item={item} />)
                     }
                 </div>
             </div>

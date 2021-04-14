@@ -6,7 +6,7 @@ import SideDrawer from './SideDrawer/SideDrawer';
 
 const Layout = ({children}) => {
 
-   const [drawerOpen, setDrawerOpen] = useState(true);
+   const [drawerOpen, setDrawerOpen] = useState(false);
    const drawerOpenHandler = () => {
      setDrawerOpen(prev => !prev );
    };
@@ -15,7 +15,7 @@ const Layout = ({children}) => {
     <div className="w-full min-h-screen bg-gray-900">
       <Navigation menuClicked={drawerOpenHandler} />
       <div className="w-full flex">
-        {drawerOpen && <SideDrawer drawerOpen = {drawerOpen} />}
+        <SideDrawer drawerOpen={drawerOpen} />
         <div className="main-body w-full px-5 py-10">
             {children}
         </div>

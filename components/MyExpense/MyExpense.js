@@ -11,7 +11,11 @@ const MyExpense = () => {
 
    
     const [session, loading] = useSession();
-    if(!session) return <h2 className="text-red-500">Unauthenticated user isn't allowed to see this section</h2>
+    if(!session) return (
+        <div className="w-full md:w-5/12 md:ml-2 rounded-xl bg-gray-800">
+            <h2 className="text-red-500">Unauthenticated user isn't allowed to see this section</h2>
+        </div>
+    )
     // if(loading) return <Spinner />;
 
     const fetcher = (...args) => fetch(...args).then(res => res.json());

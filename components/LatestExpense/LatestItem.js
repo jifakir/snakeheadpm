@@ -15,7 +15,7 @@ const LatestItem = ({item}) => {
     const fetcher = (...args) => fetch(...args).then(res => res.json());
     const {data, error} = useSWR(`/api/users/${contributor}`, fetcher);
 
-    // if(!data) return <Spinner />
+    if(!data) return <Spinner />
     
     return (
         <div className="w-full py-2 ">
@@ -30,14 +30,14 @@ const LatestItem = ({item}) => {
                         {purpose}
                     </div>
                     <div className="w-full md:w-2/3 note">
-                        {note}
+                        <p className="text-xs md:text-base">{note}</p>
                     </div>
                 </div>
                 <div className="w-1/5 text-right">
                     &#2547; {amount} BDT
                 </div>
                 <div className="w-1/5 text-gray-400 text-right">
-                    {data ? data.user.user_name : <Spinner />}
+                        <h3 className="text-xs md:text-base">Contributed by {data ? data.user.user_name : 'loading..'}</h3>
                 </div>
             </div>
         </div>
