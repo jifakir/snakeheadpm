@@ -12,7 +12,7 @@ const MyExpense = () => {
    
     const [session, loading] = useSession();
     if(!session) return (
-        <div className="w-full md:w-5/12 md:ml-2 rounded-xl bg-gray-800">
+        <div className="w-full min-h-full md:w-5/12 md:ml-2 rounded-xl flex justify-center items-center  bg-gray-800">
             <h2 className="text-red-500">Unauthenticated user isn't allowed to see this section</h2>
         </div>
     )

@@ -27,17 +27,17 @@ const LatestItem = ({item}) => {
                 </div>
                 <div className="w-2/5 md:flex flex-row">
                     <div className="w-full md:w-1/3 purpose">
-                        {purpose}
+                        <h3>{purpose}</h3>
                     </div>
                     <div className="w-full md:w-2/3 note">
                         <p className="text-xs md:text-base">{note}</p>
                     </div>
                 </div>
-                <div className="w-1/5 text-right">
-                    &#2547; {amount} BDT
+                <div className="w-1/5 text-center md:text-right">
+                    <h3 className="text-sm md:text-base">&#2547; {amount} BDT</h3>
                 </div>
                 <div className="w-1/5 text-gray-400 text-right">
-                        <h3 className="text-xs md:text-base">Contributed by {data ? data.user.user_name : 'loading..'}</h3>
+                        <h3 className="text-xs md:text-base"><span className="text-xs">Contributed by</span> {data ? data.user.user_name : 'loading..'}</h3>
                 </div>
             </div>
         </div>
