@@ -15,7 +15,7 @@ const Layout = ({children}) => {
     <div className="w-full min-h-screen bg-gray-900">
       <Navigation menuClicked={drawerOpenHandler} />
       <div className="w-full flex">
-        <SideDrawer drawerOpen={drawerOpen} />
+        <SideDrawer drawerOpen={drawerOpen} clicked={drawerOpenHandler} />
         <div className="main-body w-full px-5 py-10">
             {children}
         </div>

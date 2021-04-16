@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/client';
 
 
 
-const SideDrawer = ({drawerOpen}) => {
+const SideDrawer = ({drawerOpen, clicked}) => {
 
     const [session, loading] = useSession();
 
@@ -22,7 +22,7 @@ const SideDrawer = ({drawerOpen}) => {
                         </div>
                     </div>
                 </div>
-                <div className="w-full h-full px-5 py-7 text-gray-500 font-bold">
+                <div onClick={clicked} className="w-full h-full px-5 py-7 text-gray-500 font-bold">
                     <DrawerItem title="Overview" pathname="/dashboard">
                         <Icon.BarChart />
                     </DrawerItem>

@@ -18,7 +18,7 @@ const Dashboard = () => {
     
     useEffect(() => {
         if(!session & !loading) return router.push('/login')
-    }, session);
+    }, [session]);
 
      const [addExpense, setAddExpense] = useState(false);
 

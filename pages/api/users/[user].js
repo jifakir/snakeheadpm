@@ -5,7 +5,6 @@ import User from "../../../models/User";
 export default async (req, res) => {
 
     const {user} = req.query;
-    console.log(req.query);
     switch(req.method){
 
         case 'GET':

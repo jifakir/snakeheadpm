@@ -9,6 +9,9 @@ const LatestExpense = () => {
     const {data, error} = useSWR('/api/expense', fetcher);
 
     if(!data) return <Spinner title="Loading..." />
+    
+    const totalPage = Math.ceil(data.data.length/10);
+
 
     return (
         <div className="w-full rounded-lg">

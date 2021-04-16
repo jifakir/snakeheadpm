@@ -22,7 +22,6 @@ const MyExpense = () => {
     const {data, error} = useSWR('/api/expense', fetcher);
 
     const userId = session.user.id;
-    console.log(userId);
     const myExpenses = data.data.filter(item => item.contributor === userId).slice(0,5);
     
     return (
