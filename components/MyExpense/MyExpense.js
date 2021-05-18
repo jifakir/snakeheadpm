@@ -29,7 +29,7 @@ const MyExpense = () => {
             <div className="w-full h-full p-3 flex flex-col justify-between">
                 <header className="w-full py-3 border-b border-gray-700">
                     <h3 className="uppercase text-sm text-gray-500">Expense belongs to me</h3>
-                    <h1 className="text-4xl text-white font-bold leading-10">&#2547; 5025225</h1>
+                    <h1 className="text-4xl text-white font-bold leading-10">&#2547; {myExpenses.length > 0 ? myExpenses.reduce((acc, item) => acc + item.amount, 0 ) : 0}</h1>
                 </header>
                 <div className="w-full h-full self-start">
                     <h3 className="uppercase text-xs leading-8 text-gray-500">Recent Expense belongs to me</h3>

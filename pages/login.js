@@ -2,6 +2,7 @@ import Portal from '@reach/portal';
 import { useState } from 'react';
 import { signIn, useSession } from 'next-auth/client';
 import { useRouter } from 'next/router';
+import SeoTag from '../components/SeoTag';
 
 
 
@@ -29,6 +30,7 @@ const Login = ({clicked}) => {
 
     return (
         <Portal>
+            <SeoTag pageTitle="Login" />
             <div onClick={clicked} className="portal w-full min-h-screen fixed flex justify-center items-center bg-gray-800 shadow-lg bg-opacity-70 top-0 left-0">
                 <div onClick={(e) => e.stopPropagation()} className="w-5/6 md:w-2/6  m-auto bg-gray-900 px-10 py-8 rounded-2xl">
                     <h1 className="text-center font-bold text-2xl text-blue-500 uppercase">Login</h1>

@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import SeoTag from "../components/SeoTag";
 
 
 
@@ -15,6 +16,7 @@ const App = () => {
     });
     return (
         <div className="w-full">
+            <SeoTag pageTitle="Home" />
             <p className="text-blue-500">
                 Loading....
             </p>

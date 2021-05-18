@@ -8,6 +8,7 @@ import MyExpense from '../components/MyExpense/MyExpense';
 import OverviewCard from '../components/OverviewCard';
 import Spinner from '../components/Spinner';
 import { useSession } from 'next-auth/client';
+import SeoTag from '../components/SeoTag';
 
 
 
@@ -46,6 +47,7 @@ const Dashboard = () => {
     
     return (
         <div className="w-full py-5">
+            <SeoTag pageTitle="Dashboard" />
             <header className="">
                 <h3 className="uppercase text-sm text-gray-500 font-bold">Overview</h3>
                 <div className="w-full flex flex-col md:flex-row justify-between">
@@ -65,7 +67,7 @@ const Dashboard = () => {
                 </div>
                 <div className="pt-5 flex flex-col md:flex-row md:justify-between">
                     <OverviewCard amount={totalCost} title="Total" />
-                    <OverviewCard amount="15000" title="Last Month" />
+                    <OverviewCard amount={totalCost} title="Last Month" />
                 </div>
                 <div className="w-full pt-5 flex flex-col md:flex-row md:justify-between">
                     <ExpenditureGraph />
